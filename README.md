@@ -1,9 +1,5 @@
 # 🚀 EVENT RECOVERY & REPROCESSING IN A REAL-TIME SYSTEM
 
-<p align="center">
-  <img src="https://media.giphy.com/media/xUPGcMzwkOY01njDvi/giphy.gif">
-</p>
-
 ## 📌 Overview
 This repository provides a solution for a **scalable event recovery pipeline** to detect, back-calculate, and correct **missing, duplicate, and incorrectly processed events** in an event-driven system. The solution ensures real-time event validation, deduplication, and anomaly detection **without relying on historical logs or a traditional database**.
 
