@@ -1,6 +1,8 @@
 # 🚀 EVENT RECOVERY & REPROCESSING IN A REAL-TIME SYSTEM
 
-![Event Bus GIF](https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif)
+<p align="center">
+![GIF]([https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif](https://media.giphy.com/media/usXZmmgP9Z7kf39fnq/giphy.gif?cid=790b7611wvz3d2jxuvpp6hpxvq7qdndsnf0jajeedrma8if5&ep=v1_gifs_search&rid=giphy.gif&ct=g))
+</p>
 
 ## 📌 Overview
 This repository provides a solution for a **scalable event recovery pipeline** to detect, back-calculate, and correct **missing, duplicate, and incorrectly processed events** in an event-driven system. The solution ensures real-time event validation, deduplication, and anomaly detection **without relying on historical logs or a traditional database**.
