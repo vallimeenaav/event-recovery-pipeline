@@ -21,7 +21,7 @@ Linq's platform operates in an event-driven architecture, where actions like **b
 │── write_up/
 │   ├── README.md              # Summary, trade-offs, scalability
 │── solution/
-│   ├── event_reprocessing.ipynb  # The actual Python implementation
+│   ├── Solution_Demonstration_in_Python.ipynb  # The actual Python implementation
 │   ├── README.md              # Explanation of the solution and how to run it
 │── .gitignore                 # Ignoring unnecessary files
 │── LICENSE (optional)         # License (if required)
