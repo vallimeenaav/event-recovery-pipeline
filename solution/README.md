@@ -1,4 +1,4 @@
-# 🛠 Solution Demonstration in Google Colab
+# 🛠 Solution Demonstration in Google Colab (Python)
 
 ## 📌 Overview
 This notebook demonstrates how **event failures (missing, duplicate, and incorrect events) are detected and corrected** in Linq’s event-driven system.
