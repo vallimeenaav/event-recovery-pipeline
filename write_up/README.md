@@ -14,7 +14,7 @@ Since I **don’t have access to historical logs or a traditional database**, my
 ✔ **Ensures financial accuracy** (Real-time currency validation, Stripe API revenue checks).  
 ✔ **Scales efficiently** (Google Cloud Dataflow, Pub/Sub, Cloud Run).  
 
-📌 **For full details, refer the Detailed Approach section.**  
+📌 [**For full details, refer the Detailed Approach section.**](../approach/README.md)  
 
 ---
 
