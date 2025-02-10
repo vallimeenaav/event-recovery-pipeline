@@ -59,7 +59,7 @@ If **historical logs** or a **traditional database** were available, my approach
 
 ## 📈 Scalability: How My Approach Handles Millions of Events Per Hour
 
-📌 [**Refer to the Detailed Approach section for full scalability details.**](##📈-ensuring-scalability:-processing-millions-of-events-per-hour)  
+📌 [**Refer to the Detailed Approach section for full scalability details.**](approach/readme.md)  
 
 However, in summary:  
 
