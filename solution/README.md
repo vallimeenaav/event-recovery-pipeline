@@ -22,14 +22,15 @@ For simplicity, this demonstration simulates these processes in Python instead o
 
 ## ⚡ How to Run the Notebook
 1. Open in Google Colab
+   - You can either download the .ipynb notebook from by repo or you can [click here](https://colab.research.google.com/drive/1yn_5yn90hIxsFxp3C5o2OV5rcicb06N5?usp=sharing) to open the notebook on your google colab, save a copy in drive and then work with it!
 
-2. Run the cells sequentially  
+3. Run the cells sequentially  
    The notebook contains step-by-step explanations and code for:
    - **Simulating event failures** (missing, duplicate, incorrect events)
    - **Applying recovery techniques** (inference-based reprocessing)
    - **Validating corrections** before reinserting events into the pipeline
 
-3. Modify parameters as needed 
+4. Modify parameters as needed 
    You can try changing the input values to test different failure scenarios.
 
 ---
