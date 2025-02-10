@@ -41,9 +41,9 @@ Open solution/event_reprocessing.ipynb in Google Colab and run all cells.
 ```
 
 ## 📌 Quick Access
-▫ **[Approach - Full Breakdown](approach/README.md)** → Detailed methodology and event recovery strategies.  
-▫ **[Write-Up - Summary & Scalability](write_up/README.md)** → Summary, trade-offs, scalability, and alternative approaches.  
-▫ **[Solution - Implementation](solution/README.md)** → Execution steps and expected outputs.  
+1. **[Approach - Full Breakdown](approach/README.md)** → Detailed methodology and event recovery strategies.  
+2. **[Write-Up - Summary & Scalability](write_up/README.md)** → Summary, trade-offs, scalability, and alternative approaches.  
+3. **[Solution - Implementation](solution/README.md)** → Execution steps and expected outputs.  
 
 ## 🤝 Contributions
 Contributions are welcome! If you have suggestions or improvements, feel free to create a pull request.
