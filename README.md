@@ -26,6 +26,8 @@ These diagrams illustrate:
 - **Flowchart 1**: The initial event validation and processing pipeline.
 - **Flowchart 2**: The failure recovery mechanism, handling missing, duplicate, and incorrectly processed events.
 
+[Click here to access the flowcharts which I made using Lucid Charts](https://lucid.app/publicSegments/view/7502e54a-e14f-4345-9a0b-6e8e55cada7d/image.png)
+
 ## 📂 Repository Structure
 ```plaintext
 📦 event-recovery-pipeline/
