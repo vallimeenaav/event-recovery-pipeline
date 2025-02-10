@@ -38,7 +38,7 @@ To solve this, I propose a scalable and self-correcting event recovery system th
 
 ---
 
-## **🧩 How I Will Recover and Back-Calculate the Missing/Incorrect Data?**
+## **🧩 How Will I Recover and Back-Calculate the Missing/Incorrect Data?**
 
 ### **💡 0. Pre-Validation Before Reprocessing**
 Before any flagged event is reprocessed, a format validation check is applied using Cloud Functions and Dataflow to ensure:
