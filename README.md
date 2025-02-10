@@ -1,7 +1,7 @@
 # 🚀 EVENT RECOVERY & REPROCESSING IN A REAL-TIME SYSTEM
 
 <p align="center">
-  <img src="https://media.giphy.com/media/usXZmmgP9Z7kf39fnq/giphy.gif?cid=790b7611wvz3d2jxuvpp6hpxvq7qdndsnf0jajeedrma8if5&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Event Bus GIF">
+  <img src="https://media.giphy.com/media/usXZmmgP9Z7kf39fnq/giphy.gif?cid=790b7611wvz3d2jxuvpp6hpxvq7qdndsnf0jajeedrma8if5&ep=v1_gifs_search&rid=giphy.gif&ct=g">
 </p>
 
 ## 📌 Overview
