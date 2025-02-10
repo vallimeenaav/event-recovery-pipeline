@@ -1,6 +1,5 @@
 # 📝 Write-Up: Summary, Trade-offs, Scalability, and Alternative Approaches
 
----
 
 ## Summary of My Approach & Why I Chose It
 
