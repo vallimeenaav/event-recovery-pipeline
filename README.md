@@ -12,9 +12,13 @@ Linq's platform operates in an event-driven architecture, where actions like **b
 - 🔧 Corrects incorrectly processed events through cross-system validation, real-time recalculations, and API lookups.
 - ⚡ Scalable architecture leveraging serverless functions, streaming tools, and parallel processing for high-volume events.
 
+<p align="center">
 <img width="736" alt="Screenshot 2025-02-10 at 6 27 18 PM" src="https://github.com/user-attachments/assets/a1d03979-4a6a-4c5e-ae7d-12ba853778ec" />
+</p>
 
+<p align="center">
 <img width="1084" alt="Screenshot 2025-02-10 at 6 28 06 PM" src="https://github.com/user-attachments/assets/17f7c8a2-2196-4b50-bc6d-c4e36da72063" />
+</p>
 
 ## 📂 Repository Structure
 ```plaintext
