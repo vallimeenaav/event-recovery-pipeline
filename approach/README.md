@@ -1,21 +1,19 @@
 # 🚀 Detailed Approach
 
-## **My Approach in Detail**
-
 I’ve come up with the following detailed approach after researching Linq’s current solutions, event-driven architecture, different data engineering methodologies, and a deep dive into Google Cloud Services (for scalability) (assuming we work with GCP).  
 
 Linq’s platform runs on an event-driven system, where actions like scanning business cards, sending AI-powered follow-ups, CRM syncs, and sales tracking (assumption) are all powered by real-time event processing. But when something goes wrong—like events being missed, duplicated, or processed incorrectly—it can cause serious problems for both users and business operations.  
 
 After thinking through various possibilities, I put together a few key scenarios where event processing failures could occur. These issues could show up across different parts of Linq’s system, from lead management to store transactions. Here’s an overview of what I identified (these are my general assumptions—my approach and solution are based on this):  
 
-⚠️ **Missed or duplicate business card scans** → Leads might not get created or updated in the CRM.  
-⚠️ **AI-powered follow-ups not getting triggered correctly** → Some messages (emails, texts, or push notifications) might not get sent, while others get spammed multiple times.  
-⚠️ **CRM sync errors** → Contact records end up missing or duplicated across different CRMs (or, for example, a bug causing field information to be swapped - say between email and phone number).  
-⚠️ **Smart tagging failures** → Leads might not get classified properly (misclassified or untagged).  
-⚠️ **iMessage automation issues** → Some users might not get their follow-ups at the right time.  
-⚠️ **Miscalculated performance metrics (misreported analytics)** → Call volume, message counts, call durations might be off, leading to inaccurate tracking for the customer.  
-⚠️ **Duplicate discount codes** → Some users get multiple discount codes when they should only get one (through the Ambassador Program in Linq One app).  
-⚠️ **Incorrect revenue tracking** → Store sales are calculated wrong due to currency conversion errors.  
+    ⚠️ **Missed or duplicate business card scans** → Leads might not get created or updated in the CRM.  
+    ⚠️ **AI-powered follow-ups not getting triggered correctly** → Some messages (emails, texts, or push notifications) might not get sent, while others get spammed multiple times.  
+    ⚠️ **CRM sync errors** → Contact records end up missing or duplicated across different CRMs (or, for example, a bug causing field information to be swapped - say between email and phone number).  
+    ⚠️ **Smart tagging failures** → Leads might not get classified properly (misclassified or untagged).  
+    ⚠️ **iMessage automation issues** → Some users might not get their follow-ups at the right time.  
+    ⚠️ **Miscalculated performance metrics (misreported analytics)** → Call volume, message counts, call durations might be off, leading to inaccurate tracking for the customer.  
+    ⚠️ **Duplicate discount codes** → Some users get multiple discount codes when they should only get one (through the Ambassador Program in Linq One app).  
+    ⚠️ **Incorrect revenue tracking** → Store sales are calculated wrong due to currency conversion errors.  
 
 Since these problems all stem from event processing failures, I would design a universal solution that can handle:  
 ✔ **Missing events** – Some events were never processed.  
