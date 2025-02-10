@@ -28,7 +28,7 @@ However, as the instructions state: **I don’t have access to historical logs o
 
 To solve this, I propose a scalable and self-correcting event recovery system that detects, back-calculates, and prevents errors by leveraging real-time validation techniques, caching, and event reprocessing mechanisms.  
 
-### 🔍 **[Quick Appendix: Tools Used]**
+### 🔍 **Quick Appendix: Tools Used**
 
 - **Google Cloud Dataflow (Apache Beam)** → Used for real-time event stream processing, dependency validation, and error detection.  
 - **Google Cloud Functions** → Used for lightweight event validation, missing event recovery, and cross-system verification.  
@@ -180,5 +180,3 @@ Why I Didn’t Choose This:
 - Linq’s system requires real-time event correction. Delaying reprocessing would mean CRM syncs, AI follow-ups, and revenue tracking remain incorrect for a longer period, affecting business operations.
 - Pub/Sub Dead Letter Queues (DLQs) already provide a retry mechanism, ensuring events are retried efficiently.
 - My approach prioritizes immediate correction while avoiding unnecessary retries using idempotency checks to prevent duplicate processing.
-
----
