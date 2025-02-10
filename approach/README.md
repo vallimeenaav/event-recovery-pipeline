@@ -1,4 +1,4 @@
-# 🚀 Detailed Approach
+# 🚀 DETAILED APPROACH
 
 I’ve come up with the following detailed approach after researching Linq’s current solutions, event-driven architecture, different data engineering methodologies, and a deep dive into Google Cloud Services (for scalability) (assuming we work with GCP).  
 
