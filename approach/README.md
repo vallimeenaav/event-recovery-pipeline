@@ -6,14 +6,14 @@ Linq’s platform runs on an event-driven system, where actions like scanning bu
 
 After thinking through various possibilities, I put together a few key scenarios where event processing failures could occur. These issues could show up across different parts of Linq’s system, from lead management to store transactions. Here’s an overview of what I identified (these are my general assumptions—my approach and solution are based on this):  
 
-    ⚠️ **Missed or duplicate business card scans** → Leads might not get created or updated in the CRM.  
-    ⚠️ **AI-powered follow-ups not getting triggered correctly** → Some messages (emails, texts, or push notifications) might not get sent, while others get spammed multiple times.  
-    ⚠️ **CRM sync errors** → Contact records end up missing or duplicated across different CRMs (or, for example, a bug causing field information to be swapped - say between email and phone number).  
-    ⚠️ **Smart tagging failures** → Leads might not get classified properly (misclassified or untagged).  
-    ⚠️ **iMessage automation issues** → Some users might not get their follow-ups at the right time.  
-    ⚠️ **Miscalculated performance metrics (misreported analytics)** → Call volume, message counts, call durations might be off, leading to inaccurate tracking for the customer.  
-    ⚠️ **Duplicate discount codes** → Some users get multiple discount codes when they should only get one (through the Ambassador Program in Linq One app).  
-    ⚠️ **Incorrect revenue tracking** → Store sales are calculated wrong due to currency conversion errors.  
+⚠️ **Missed or duplicate business card scans** → Leads might not get created or updated in the CRM.  
+⚠️ **AI-powered follow-ups not getting triggered correctly** → Some messages (emails, texts, or push notifications) might not get sent, while others get spammed multiple times.  
+⚠️ **CRM sync errors** → Contact records end up missing or duplicated across different CRMs (or, for example, a bug causing field information to be swapped - say between email and phone number).  
+⚠️ **Smart tagging failures** → Leads might not get classified properly (misclassified or untagged).  
+⚠️ **iMessage automation issues** → Some users might not get their follow-ups at the right time.  
+⚠️ **Miscalculated performance metrics (misreported analytics)** → Call volume, message counts, call durations might be off, leading to inaccurate tracking for the customer.  
+⚠️ **Duplicate discount codes** → Some users get multiple discount codes when they should only get one (through the Ambassador Program in Linq One app).  
+⚠️ **Incorrect revenue tracking** → Store sales are calculated wrong due to currency conversion errors.  
 
 Since these problems all stem from event processing failures, I would design a universal solution that can handle:  
 ✔ **Missing events** – Some events were never processed.  
@@ -24,11 +24,11 @@ However, as the instructions state: **I don’t have access to historical logs o
 
 ---
 
-## **Tools, Strategies, and Techniques to Use**
+## 🛠 Tools, Strategies, and Techniques to Use
 
 To solve this, I propose a scalable and self-correcting event recovery system that detects, back-calculates, and prevents errors by leveraging real-time validation techniques, caching, and event reprocessing mechanisms.  
 
-### **[Quick Appendix: Tools Used]**
+### 🔍 **[Quick Appendix: Tools Used]**
 
 - **Google Cloud Dataflow (Apache Beam)** → Used for real-time event stream processing, dependency validation, and error detection.  
 - **Google Cloud Functions** → Used for lightweight event validation, missing event recovery, and cross-system verification.  
@@ -38,16 +38,16 @@ To solve this, I propose a scalable and self-correcting event recovery system th
 
 ---
 
-## **🛠 How I Will Recover and Back-Calculate the Missing/Incorrect Data?**
+## **🧩 How I Will Recover and Back-Calculate the Missing/Incorrect Data?**
 
-### **✅ 0. Pre-Validation Before Reprocessing**
+### **💡 0. Pre-Validation Before Reprocessing**
 Before any flagged event is reprocessed, a format validation check is applied using Cloud Functions and Dataflow to ensure:
 - All required fields exist (e.g., `event_id`, `timestamp`, `event_type`, `data`).  
 - Timestamps are valid (not missing, outdated, or future-dated).  
 - Numeric fields (e.g., `amount`, `duration`) are properly formatted.  
 - If an event fails validation, it is flagged for manual review instead of being reprocessed.  
 
-### **✅ 1. Detecting Missing Events**
+### **💡 1. Detecting Missing Events**
 Since logs are not available, missing events will be inferred using:
 
 📌 **Event ID Gaps Detection (Pub/Sub Event Ordering)**  
@@ -63,7 +63,7 @@ Since logs are not available, missing events will be inferred using:
 - Use BigQuery ML anomaly detection to dynamically adjust expectations based on time of day, seasonality, and user activity levels.
 - A Cloud Dataflow pipeline detects when event volumes drop significantly compared to historical data.  
 
-### **✅ 2. Handling Duplicate Events**
+### **💡 2. Handling Duplicate Events**
 Duplicate events must not distort results. Can prevent this by:
 
 📌 **Idempotency Keys (Pub/Sub Message Attributes)** 
@@ -79,7 +79,7 @@ Duplicate events must not distort results. Can prevent this by:
 - The DLQ acts as a backup, storing events that should not be retried.
 - A Cloud Function listens to the DLQ and checks if an event should be permanently discarded or manually reviewed.
 
-### **✅ 3. Correcting Incorrectly Processed Events**
+### **💡 3. Correcting Incorrectly Processed Events**
 If events were processed incorrectly due to calculation errors, need to recalculate and correct them dynamically.
 
 📌 **Cross-System Validation (Dataflow + API Verification)** 
@@ -93,7 +93,7 @@ If CRM data doesn’t match Linq’s internal records, flag for correction.*
 📌 **Rebuilding Corrupted Data (Cloud Run for Reprocessing)** 
 - If an event was processed incorrectly, the next step is to query real-time APIs and recalculate the correct values dynamically using cloud run. The corrected data is then re-inserted into the event pipeline to update Linq’s records.
 
-### **✅ 4. Fixing Revenue & Currency Conversion Errors**
+### **💡 4. Fixing Revenue & Currency Conversion Errors**
 If sales revenue tracking is incorrect, need to validate and correct it automatically.
 
 📌 **Real-time Currency Conversion Validation (Dataflow + OpenExchangeRates API)** 
@@ -105,7 +105,7 @@ If sales revenue tracking is incorrect, need to validate and correct it automati
 - It cross-checks Linq’s store sales data against payment processor data (e.g., Stripe API or PayPal).
 - If the recorded revenue deviates by more than 5%, it gets flagged for triggering auto-reprocessing.
 
-### **✅ 5. Fixing Misreported Sales & Call Tracking**
+### **💡 5. Fixing Misreported Sales & Call Tracking**
 📌 **Sales Tracking Validation (Dataflow + Pub/Sub Event Matching)** 
 - Cloud Dataflow listens to all sales transactions in Pub/Sub. Ensure price × quantity = revenue before storing the event.
 - Use historical trend analysis to detect misreported sales totals (unusually high or low sales amounts), then flag it.
@@ -116,7 +116,7 @@ If sales revenue tracking is incorrect, need to validate and correct it automati
 
 ---
 
-## **📈 Ensuring Scalability: Processing Millions of Events Per Hour**
+## 📈 Ensuring Scalability: Processing Millions of Events Per Hour
 To ensure the highest accuracy in recalculating missing, duplicate, or incorrect events, I have suggested multiple validation mechanisms:
 
 ✔ Format Validation Before Reprocessing
@@ -143,7 +143,7 @@ To ensure the highest accuracy in recalculating missing, duplicate, or incorrect
 
 ---
 
-## **📌 Alternative Approaches & Why I Chose My Solution**
+## 🔄 Plausible Alternative Approaches & Why I Chose My Solution
 While designing this solution, I considered a few alternatives for some of the tasks in my solution:
 
 ### **1️⃣ Alternative: Assigning a Unique "Event State Tracker" Instead of Inference-Based Recovery**
