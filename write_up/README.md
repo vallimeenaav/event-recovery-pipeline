@@ -1,6 +1,5 @@
 # 📝 Write-Up: Summary, Trade-offs, Scalability, and Alternative Approaches
 
-
 ## Summary of My Approach & Why I Chose It
 
 Linq’s system operates in an **event-driven architecture**, meaning real-time event processing is critical for business operations. However, failures in event processing—such as **missed, duplicated, or incorrectly processed events**—can lead to inaccurate CRM updates, incorrect sales tracking, failed AI-powered follow-ups, and poor customer experience.  
