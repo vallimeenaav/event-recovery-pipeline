@@ -126,7 +126,7 @@ By distributing workloads across serverless & auto-scaling GCP services, the sys
 
 I have suggested multiple validation mechanisms for this purpose:
 
-✔ Format Validation Before Reprocessing
+✔ Format Validation before Reprocessing
 - Before any flagged event is reprocessed, a Cloud Function validates that all required fields exist, timestamps are valid, and numeric fields are properly formatted.
 
 ✔ Cross-System Data Consistency Verification:
