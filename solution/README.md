@@ -35,14 +35,6 @@ For simplicity, this demonstration simulates these processes in Python instead o
 
 ---
 
-## 🔍 Key Functionalities Demonstrated
-- **Event failure detection:** Identifying missing, duplicate, and incorrect events.
-- **Data validation & correction:** Ensuring consistency before reinserting events.
-- **Simulated external API checks:** Mimicking CRM, payment, and communication API verification.
-- **Final reprocessing pipeline:** Publishing recovered events for downstream use.
-
----
-
 ## 📌 References
 - **[Full Approach Explanation](../approach/)**
 - **[Write-Up: Trade-offs & Scalability](../write_up/)**
