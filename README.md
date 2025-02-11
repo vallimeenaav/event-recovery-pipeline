@@ -16,12 +16,14 @@ To provide a **quick and easy visual representation** of the event recovery pipe
 
 <p align="center">
 <img width="736" alt="Screenshot 2025-02-10 at 6 27 18 PM" src="https://github.com/user-attachments/assets/a1d03979-4a6a-4c5e-ae7d-12ba853778ec" />
-Flowchart 1: The initial event validation and processing pipeline
+
+  Flowchart 1: The initial event validation and processing pipeline
 </p>
 
 <p align="center">
 <img width="1084" alt="Screenshot 2025-02-10 at 6 28 06 PM" src="https://github.com/user-attachments/assets/17f7c8a2-2196-4b50-bc6d-c4e36da72063" />
-Flowchart 2: The failure recovery mechanism, handling missing, duplicate, and incorrectly processed events
+
+  Flowchart 2: The failure recovery mechanism, handling missing, duplicate, and incorrectly processed events
 </p>
 
 [Click here to access the flowcharts on Lucid Charts](https://lucid.app/publicSegments/view/7502e54a-e14f-4345-9a0b-6e8e55cada7d/image.png)
