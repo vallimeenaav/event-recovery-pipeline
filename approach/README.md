@@ -111,9 +111,13 @@ Linq’s system says Valli Meenaa made a $100 purchase at 1:00 PM, but Stripe’
 Since Linq’s system processes large-scale real-time data, my solution is fully scalable using:
 
 ✔ Google Cloud Dataflow (Apache Beam) for parallel processing.
+
 ✔ Cloud Functions for lightweight, event-driven validation.
+
 ✔ Cloud Run for dynamically scaling reprocessing tasks and for processes with higher workloads.
+
 ✔ BigQuery ML for anomaly detection on event streams.
+
 ✔ Pub/Sub Dead Letter Queues for auto-replaying flagged events.
 
 By distributing workloads across serverless & auto-scaling GCP services, the system can dynamically handle huge volumes while maintaining accuracy.
@@ -132,7 +136,7 @@ I have suggested multiple validation mechanisms for this purpose:
 ✔ Idempotency to Prevent Overcorrection:
 - Every recalculated event has a unique UUID to ensure it is not applied multiple times (prevents overcorrection).
 
-✔ Auto-Reconciliation via Anomaly Detection:
+✔ Anomaly Detection:
 - If a recalculated value significantly deviates from historical trends, it is flagged for manual review instead of automatic correction.
 - Example: If a revenue recalculation unexpectedly increases sales by 300%, it is held for manual validation.
 
